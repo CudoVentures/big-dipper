@@ -48,6 +48,7 @@ common:
     from: 'From'
     to: 'To'
     amount: 'amount'
+    sourcePort: 'Source Port'
 navbar:
     siteName: 'BIG DIPPER'
     version: '-'
@@ -297,3 +298,4 @@ messageTypes:
     IBCHeight: 'IBC Height'
     IBCChannel: 'IBC Channel'
     IBCPacket: 'IBC Packet'
+    IBCMsgTransfer: 'IBC Message Transfer'

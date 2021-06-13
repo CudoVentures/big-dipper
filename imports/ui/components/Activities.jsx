@@ -395,6 +395,26 @@ export default class Activites extends Component {
                 <Account address={msg.signer} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} />
             </p>
            
+            // IBC applications
+        case "/ibc.applications.transfer.v1.MsgTransfer":
+            return <p>
+                <Account address={msg.sender} /> {(this.props.invalid) ? <T>activities.failedTo</T> : ''}<MsgType type={msg["@type"]} /> <span className="text-success">{ new Coin(msg.token.amount, msg.token.denom).toString(6)}</span> <T>activities.to</T> <span className="address"><Account address={msg.receiver} /></span><T>common.fullStop</T>
+                {this.props.showDetails ? <p className="d-inline">
+                    <Table striped className="mt-3">
+                        <tbody>
+                            <tr>
+                                <th><T>common.sourceChannel</T></th>
+                                <td>{msg?.source_channel}</td>
+                            </tr>
+                            <tr>
+                                <th><T>common.sourcePort</T></th>
+                                <td>{msg?.source_port}</td>
+                            </tr>
+                        </tbody>
+                    </Table>
+                </p> : null }
+            </p>      
+        
         default:
             return <div><ReactJson src={msg} /></div>
         }

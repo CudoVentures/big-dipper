@@ -129,6 +129,10 @@ export const MsgType = (props) => {
     case "/ibc.core.connection.v1.Version":
         return <Badge style={{ backgroundColor: "#000080" }}><T>messageTypes.IBCVersion</T></Badge>;
 
+    // IBC applications
+    case "/ibc.applications.transfer.v1.MsgTransfer":
+        return <Badge style={{ backgroundColor: "#000080" }}><T>messageTypes.IBCMsgTransfer</T></Badge>;
+
     default:
         return <Badge color="primary">{props.type}</Badge>;
     }
