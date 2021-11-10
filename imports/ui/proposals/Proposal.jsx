@@ -407,10 +407,12 @@ export default class Proposal extends Component{
                             <Col md={this.state.user?6:9} className="value">{this.props.proposal.proposalId}</Col>
                             {this.state.user?<Col md={3}><ProposalActionButtons voteStarted={this.state.voteStarted} history={this.props.history} proposalId={proposalId}/></Col>:null} 
                         </Row>
-                        <Row className="mb-2 border-top">
-                            <Col md={3} className="label"><T>proposals.proposer</T></Col>
-                            <Col md={9} className="value"><Account address={this.props.proposal.deposits[0].depositor} /></Col>
-                        </Row>
+                        { this.props.proposal.deposits?.length > 0 && (
+                            <Row className="mb-2 border-top">
+                                <Col md={3} className="label"><T>proposals.proposer</T></Col>
+                                <Col md={9} className="value"><Account address={this.props.proposal.deposits[0].depositor} /></Col>
+                            </Row>
+                        ) }
                         <Row className="mb-2 border-top">
                             <Col md={3} className="label"><T>proposals.title</T></Col>
                             <Col md={9} className="value">{this.props.proposal.content.title}</Col>
