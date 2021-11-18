@@ -102,7 +102,7 @@
         "startTimer": true
     },
     "params":{
-        "startHeight": 0,
+        "startHeight": 1175800,
         "defaultBlockTime": 5000,
         "validatorUpdateWindow": 300,
         "blockInterval": 15000,
