@@ -172,7 +172,7 @@ Meteor.methods({
                             // response = HTTP.get(url);
                             // let inflation = JSON.parse(response.content).result;
                             if (inflation){
-                                chainStates.inflation = new BigNumber(inflation)
+                                chainStates.inflation = parseFloat(inflation)
                             }
                         }
                         catch(e){
@@ -185,7 +185,7 @@ Meteor.methods({
                             let provisions = JSON.parse(response.content).annual_provisions;
                             console.log(provisions)
                             if (provisions){
-                                chainStates.annualProvisions = new BigNumber(provisions);
+                                chainStates.annualProvisions = parseFloat(provisions)
                             }
                         }
                         catch(e){
@@ -204,9 +204,9 @@ Meteor.methods({
                     }
 
                     if (Meteor.settings.public.modules.gov){
-                        // update mint params
+                        // update gov params
                         try {
-                            url = API + '/cosmos/gov/v1beta1/params';
+                            url = API + '/cosmos/gov/v1beta1/params/tallying';
                             response = HTTP.get(url);
                             chain.gov = JSON.parse(response.content);
                         }
