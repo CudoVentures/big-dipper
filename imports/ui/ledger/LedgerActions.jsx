@@ -440,8 +440,7 @@ class LedgerButton extends Component {
 
             txMsg = Ledger.createSubmitProposal(
                 this.getTxContext(),
-                proposalData,
-                this.state.depositAmount.amount);
+                proposalData);
             break;
         case Types.VOTE:
             txMsg = Ledger.createVote(
@@ -1091,9 +1090,9 @@ class SubmitProposalButton extends LedgerButton {
             <div>
                 <h3> {this.state.proposalTitle} </h3>
                 <div> {this.state.proposalDescription} </div>
-                <div> Initial Deposit:
+                {/* <div> Initial Deposit:
                     <Amount coin={this.state.depositAmount}/>
-                </div>
+                </div> */}
                 <span> Fee: <Fee gas={this.state.gasEstimate}/>.</span>
             </div>
         </span>

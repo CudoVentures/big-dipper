@@ -589,8 +589,7 @@ export class Ledger {
 
     static createSubmitProposal(
         txContext,
-        proposalData,
-        deposit
+        proposalData
     ) {
         
         const content = getProposalContent(proposalData);
@@ -599,10 +598,6 @@ export class Ledger {
             typeUrl: TYPE_URLS.msgSubmitProposal,
             value: {
                 content: content,
-                initial_deposit: [{
-                    amount: deposit.toString(10),
-                    denom: txContext.denom
-                }],
                 proposer: txContext.bech32
             }
         }];
