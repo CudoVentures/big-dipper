@@ -1034,13 +1034,13 @@ class SubmitProposalButton extends LedgerButton {
                     </>
                     ) : ''
                 }
-                <InputGroup>
+                {/* <InputGroup>
                     <Input name="depositAmount" onChange={this.handleInputChange}
                         data-type='coin' placeholder="Amount"
                         min={Coin.MinStake} max={maxAmount.stakingAmount} type="number"
                         invalid={this.state.depositAmount != null && !isBetween(this.state.depositAmount, (new BigNumber(1)).dividedBy(Coin.StakingCoin.fraction), maxAmount)}/>
                     <InputGroupAddon addonType="append">{Coin.StakingCoin.displayName}</InputGroupAddon>
-                </InputGroup>
+                </InputGroup> */}
                 <Input name="memo" onChange={this.handleInputChange}
                     placeholder="Memo(optional)" type="textarea" value={this.state.memo}/>
                 <div>your available balance: <Amount coin={maxAmount}/></div> 
@@ -1204,7 +1204,7 @@ class ProposalActionButtons extends LedgerButton {
     render = () => {
         return <span className="ledger-buttons-group float-right">
             <Row>
-                {this.state.validator && this.props.voteStarted ? 
+                {this.props.voteStarted ? 
                     <Col><Button color="secondary" size="sm"
                         onClick={() => this.openModal(Types.VOTE, {})}>
                         {TypeMeta[Types.VOTE].button}
