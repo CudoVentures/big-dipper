@@ -256,7 +256,8 @@ export class Ledger {
                         low: Meteor.settings.public.ledger.gasPrice / 2,
                         average: Meteor.settings.public.ledger.gasPrice / 8,
                         high: Meteor.settings.public.ledger.gasPrice * 2
-                    }
+                    },
+                    features:["stargate", "ibc-transfer", "no-legacy-stdTx"]
                 });
             } catch (ex) {
                 alert("Failed to suggest the chain");
