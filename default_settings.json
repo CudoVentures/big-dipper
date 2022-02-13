@@ -1,7 +1,7 @@
 {
-    "public":{
-        "chainName": "CudosNetwork",
-        "chainId": "cudos-local-network",
+    "public": {
+        "chainName": "CudosTestnet-Public-v2",
+        "chainId": "cudos-testnet-public-2",
         "gtm": "",
         "slashingWindow": 400,
         "uptimeWindow": 250,
@@ -14,15 +14,15 @@
         "bech32PrefixConsAddr": "cudosvalcons",
         "bech32PrefixConsPub": "cudosvalconspub",
         "bondDenom": "acudos",
-        "powerReduction": 1000000000000000000,
-        "onChainPowerReduction": 1000000000000000000,
-        "genesisTime": "2021-09-17T12:54:30.602457663Z",
-        "faucetUrl": "http://localhost:5000",
+        "powerReduction": 1e+18,
+        "onChainPowerReduction": 1e+18,
+        "genesisTime": "2021-08-25T08:21:32.483824849Z",
+        "faucetUrl": "https://faucet.cudos.org",
         "coins": [
             {
                 "denom": "acudos",
                 "displayName": "CUDOS",
-                "fraction": 1000000000000000000
+                "fraction": 1e+18
             },
             {
                 "denom": "fcudos",
@@ -53,9 +53,9 @@
                 "denom": "cudos",
                 "displayName": "CUDOS",
                 "fraction": 1
-            } 
+            }
         ],
-        "ledger":{
+        "ledger": {
             "coinType": 118,
             "appName": "CudosNetwork",
             "appVersion": "0.0.1",
@@ -70,46 +70,66 @@
         },
         "coingeckoId": "cudos",
         "urls": {
-            "rpc":"http://localhost:26657",
-            "api":"http://localhost:1317",
-            "staking":"http://localhost:3000/validators"
+            "rpc": "https://sentry1.gcp-uscentral1.cudos.org:26657",
+            "api": "http://35.232.27.92:1317",
+            "staking": "https://explorer.cudos.org/validators"
         },
         "fees": {
             "delegate": {
-                "amount": [{"denom": "ucudos", "amount": 100}],
+                "amount": [
+                    {
+                        "denom": "ucudos",
+                        "amount": 100
+                    }
+                ],
                 "gas": "180000"
             },
             "redelegate": {
-                "amount": [{"denom": "ucudos", "amount": 100}],
+                "amount": [
+                    {
+                        "denom": "ucudos",
+                        "amount": 100
+                    }
+                ],
                 "gas": "360000"
             },
             "undelegate": {
-                "amount": [{"denom": "ucudos", "amount": 100}],
+                "amount": [
+                    {
+                        "denom": "ucudos",
+                        "amount": 100
+                    }
+                ],
                 "gas": "180000"
             },
             "withdraw": {
-                "amount": [{"denom": "cudos", "amount": 100}],
+                "amount": [
+                    {
+                        "denom": "cudos",
+                        "amount": 100
+                    }
+                ],
                 "gas": "180000"
             }
         },
         "CAPTCHA_FRONTEND_KEY": "6Lca4qcbAAAAADg1NuxQ0lVA0LFideOlqc4ofdsY"
     },
-    "remote":{
-        "rpc":"http://localhost:26657",
-        "api":"http://localhost:1317"
+    "remote": {
+        "rpc": "https://sentry1.gcp-uscentral1.cudos.org:26657",
+        "api": "http://35.232.27.92:1317"
     },
     "debug": {
         "startTimer": true
     },
-    "params":{
-        "startHeight": 0,
+    "params": {
+        "startHeight": 2305709,
         "defaultBlockTime": 5000,
         "validatorUpdateWindow": 300,
         "blockInterval": 15000,
         "transactionsInterval": 18000,
         "keybaseFetchingInterval": 18000000,
         "consensusInterval": 1000,
-        "statusInterval":7500,
+        "statusInterval": 7500,
         "signingInfoInterval": 1800000,
         "proposalInterval": 5000,
         "missedBlocksInterval": 60000,
