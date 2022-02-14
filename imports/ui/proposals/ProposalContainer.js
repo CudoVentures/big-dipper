@@ -11,7 +11,7 @@ export default ProposalContainer = withTracker((props) => {
         proposalId = parseInt(props.match.params.id);
     }
 
-    let chainHandle, proposalHandle, proposalListHandle, proposal, proposalCount, chain, proposalExist;
+    let chainHandle, proposalHandle, proposalListHandle, proposal, proposalCount, chain, proposalExist, maxProposalId;
     let loading = true;
 
     if (Meteor.isClient){
@@ -23,6 +23,10 @@ export default ProposalContainer = withTracker((props) => {
 
     if (Meteor.isServer || !loading){
         proposal = Proposals.findOne({proposalId:proposalId});
+
+        maxProposalId = Math.max(...Proposals.find().map(function(id) {
+            return id.proposalId;
+          }));
         
         proposalCount = Proposals.find({}).count();
         chain = Chain.findOne({chainId:Meteor.settings.public.chainId});
@@ -49,6 +53,7 @@ export default ProposalContainer = withTracker((props) => {
     }
 
     return {
+        maxProposalId,
         loading,
         proposalExist,
         proposal: proposalExist ? proposal : {},

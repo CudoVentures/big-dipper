@@ -390,7 +390,7 @@ export default class Proposal extends Component{
         }
         else{
             if (this.props.proposalExist && this.state.proposal != ''){
-                const proposalId = Number(this.props.proposal.proposalId), maxProposalId = Number(this.props.proposalCount);
+                const proposalId = Number(this.props.proposal.proposalId), maxProposalId = Number(this.props.maxProposalId);
                 let totalVotingPower = this.props.chain.activeVotingPower.multipliedBy(Meteor.settings.public.powerReduction);
                 let proposalType = this.props.proposal.content["@type"].split('.');
                 proposalType = proposalType[proposalType.length-1].match(/[A-Z]+[^A-Z]*|[^A-Z]+/g).join(" ");
@@ -588,7 +588,12 @@ export default class Proposal extends Component{
                 </div>
             }
             else{
-                return <div><T>proposals.notFound</T></div>
+                return <div>
+                    <T>proposals.notFound</T>
+                    <Row className='clearfix'>
+                        <Link to="/proposals" className="btn btn-primary" style={{margin: 'auto'}}><i className="fas fa-caret-up"></i> <T>common.backToList</T></Link>
+                    </Row>
+                    </div>
             }
         }
     }
