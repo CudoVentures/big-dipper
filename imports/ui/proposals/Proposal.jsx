@@ -134,7 +134,7 @@ export default class Proposal extends Component{
                             abstainPercent: (totalVotes.comparedTo(0) == 1) ? votesAbstain.dividedBy(totalVotes).multipliedBy(100) : new BigNumber(0),
                             noPercent: (totalVotes.comparedTo(0) == 1) ? votesNo.dividedBy(totalVotes).multipliedBy(100) : new BigNumber(0),
                             noWithVetoPercent: (totalVotes.comparedTo(0) == 1) ? votesNoWithVeto.dividedBy(totalVotes).multipliedBy(100) : new BigNumber(0),
-                            proposalValid: totalVotes.dividedBy(totalVotingPower.multipliedBy(Meteor.settings.public.powerReduction)).comparedTo(this.props.chain.gov.tallyParams.quorum) == 1 ? true : false
+                            proposalValid: totalVotes.dividedBy(totalVotingPower.multipliedBy(Meteor.settings.public.powerReduction)).comparedTo(this.props.chain.gov.tally_params.quorum) == 1 ? true : false
                         })
                     }
                     else{
@@ -159,7 +159,7 @@ export default class Proposal extends Component{
                             abstainPercent: (totalVotes.comparedTo(0) == 1) ? finalTallyResult.abstain.dividedBy(totalVotes).multipliedBy(100) : new BigNumber(0),
                             noPercent: (totalVotes.comparedTo(0) == 1) ? finalTallyResult.no.dividedBy(totalVotes).multipliedBy(100) : new BigNumber(0),
                             noWithVetoPercent: (totalVotes.comparedTo(0) == 1) ? finalTallyResult.no_with_veto.dividedBy(totalVotes).multipliedBy(100) : new BigNumber(0),
-                            proposalValid: totalVotes.dividedBy(totalVotingPower.multipliedBy(Meteor.settings.public.powerReduction)).comparedTo(this.props.chain.gov.tallyParams.quorum) == 1 ? true : false
+                            proposalValid: totalVotes.dividedBy(totalVotingPower.multipliedBy(Meteor.settings.public.powerReduction)).comparedTo(this.props.chain.gov.tally_params.quorum) == 1 ? true : false
                         })
                     }
                 }
@@ -554,8 +554,8 @@ export default class Proposal extends Component{
                                                 {this.state.proposalValid ? 
                                                     <T _props={{className:'text-success'}} tentative={(!this.state.voteEnded)?'(tentatively) ':''} _purify={false}>proposals.validMessage</T> :
                                                     (this.state.voteEnded) ?
-                                                        <T _props={{className:'text-danger'}} quorum={numbro(this.props.chain.gov.tallyParams.quorum).format("0.00%")} _purify={false}>proposals.invalidMessage</T>
-                                                        : <T moreVotes={totalVotingPower.multipliedBy(this.props.chain.gov.tallyParams.quorum).minus(this.state.totalVotes).dividedBy(Meteor.settings.public.powerReduction).toString(10)} _purify={false}>proposals.moreVoteMessage</T>
+                                                        <T _props={{className:'text-danger'}} quorum={numbro(this.props.chain.gov.tally_params.quorum).format("0.00%")} _purify={false}>proposals.invalidMessage</T>
+                                                        : <T moreVotes={totalVotingPower.multipliedBy(this.props.chain.gov.tally_params.quorum).minus(this.state.totalVotes).dividedBy(Meteor.settings.public.powerReduction).toString(10)} _purify={false}>proposals.moreVoteMessage</T>
                                                 }
                                             </em>
                                         </Card>
