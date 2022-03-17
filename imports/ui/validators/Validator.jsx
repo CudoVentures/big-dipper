@@ -269,7 +269,7 @@ export default class Validator extends Component{
                                     <Col sm={8} className="value">
                                         {this.props.validator.proposer_priority ? numbro(this.props.validator.proposer_priority).format('0,0') : 'N/A'}
                                     </Col>
-                                    <Col sm={4} className="label"><T>validators.delegatorShares</T></Col>
+                                    <Col sm={4} className="label"><T>validators.delegatedAmount</T></Col>
                                     <Col sm={8} className="value">{numbro(this.props.validator.delegator_shares).format('0,0.00')}</Col>
                                     {(this.state.currentUserDelegation)?<Col sm={4} className="label"><T>validators.userDelegateShares</T></Col>:''}
                                     {(this.state.currentUserDelegation)?<Col sm={8} className="value">{numbro(this.state.currentUserDelegation.balance.amount).format('0,0.00')}</Col>:''}

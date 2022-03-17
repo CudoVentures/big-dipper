@@ -133,6 +133,7 @@ validators:
     selfDelegationRatio: 'Self Delegation Ratio'
     proposerPriority: 'Proposer Priority'
     delegatorShares: 'Delegator Shares'
+    delegatedAmount: 'Delegated Amount'
     userDelegateShares: 'Shares Delegated by you'
     tokens: 'Tokens'
     unbondingHeight: 'Unbonding Height'
