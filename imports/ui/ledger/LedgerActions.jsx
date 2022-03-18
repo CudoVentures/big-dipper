@@ -128,6 +128,7 @@ const Amount = (props) => {
     let coin = props.coin || new Coin(props.amount, props.denom).toString(4);
     let amount = (props.mint)?Math.round(coin.amount):coin.stakingAmount;
     let denom = (props.mint)?Coin.StakingCoin.denom:Coin.StakingCoin.displayName;
+    let test = numbro(amount).format("0,0.0000");
     return <span><span className={props.className || 'amount'}>{numbro(amount).format("0,0.0000")}</span> <span className='denom'>{denom}</span></span>
 }
 
@@ -800,7 +801,8 @@ class DelegationButtons extends LedgerButton {
         let isCompleted = !completionTime || new Date() >= completionTime;
         let maxEntries = this.props.stakingParams?this.props.stakingParams.max_entries:7;
         let canUnbond = !delegation.unbonding || maxEntries > delegation.unbonding;
-        return <span>
+        if (delegation.balance.amount !== '0') {
+            return <span>
             <div id='redelegate-button' className={`disabled-btn-wrapper${isCompleted?'':' disabled'}`}>
                 <Button color="warning" size="lg" disabled={!isCompleted}
                     onClick={() => this.openModal(Types.REDELEGATE)}>
@@ -824,6 +826,7 @@ class DelegationButtons extends LedgerButton {
                 </UncontrolledTooltip>}
             </div>
         </span>
+        } 
     }
 
     render = () => {
