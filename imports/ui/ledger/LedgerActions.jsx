@@ -128,7 +128,6 @@ const Amount = (props) => {
     let coin = props.coin || new Coin(props.amount, props.denom).toString(4);
     let amount = (props.mint)?Math.round(coin.amount):coin.stakingAmount;
     let denom = (props.mint)?Coin.StakingCoin.denom:Coin.StakingCoin.displayName;
-    let test = numbro(amount).format("0,0.0000");
     return <span><span className={props.className || 'amount'}>{numbro(amount).format("0,0.0000")}</span> <span className='denom'>{denom}</span></span>
 }
 
